@@ -1,0 +1,19 @@
+<div class="profile-container">
+	<h2>User info</h2>
+    <h3 class="profile-name"><%= current_user.name %></h3>
+    <h3 class="introduction"><%= current_user.introduction %></h3>
+        <p><%= link_to "プロフィール編集", edit_user_path(current_user), class: "pull-right" %></p>
+</div>
+<%= form_for(book) do |f| %>
+	<div class="field">
+		<label for="book_title">Title</label><br>
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<label for="book_body">Body</label><br>
+		<%= f.text_area :body %>
+	</div>
+	<div class="actions">
+		<%= f.submit 'Create Book' %>
+	</div>
+<% end %>

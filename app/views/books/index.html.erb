@@ -1,4 +1,4 @@
-<%= render 'layouts/mypage', user: @user %>
+<%= render 'layouts/mypagebook', {user: @user, book: @book} %>
 <table>
   <thead>
     <tr>
@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-  <% books.each do |book| %>
+  <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.body %></td>
@@ -15,3 +15,6 @@
   <% end %>
   </tbody>
 </table>
+<% if flash[:notice] %>
+  <p id=notice><%= flash[:notice] %></p>
+<% end %>
