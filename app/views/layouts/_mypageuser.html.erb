@@ -1,24 +1,39 @@
-<div class="profile-container">
+<div class="col-xs-3">
 	<h2>User info</h2>
-    <h3 class="profile-name"><%= current_user.name %></h3>
-    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-    <h3 class="introduction"><%= current_user.introduction %></h3>
-  <% if user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+	<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+	<table class="table">
+		<tbody>
+			<tr>
+    			<th>name</th>
+    			<th><%= current_user.name %></th>
+    		</tr>
+    		<tr>
+    			<th>introduction</th>
+    			<th><%= current_user.introduction %></th>
+    		</tr>
+    	</tbody>
+    </table>
+    <div class="row">
+    	<div class="col-xs-12">
+        <% if user.id == current_user.id %>
+        <%= link_to "", edit_user_path(@user), class: "btn btn-default glyphicon glyphicon-wrench btn-block" %>
         <% else %>
-        <p><%= link_to "プロフィール編集", user_path(current_user), class: "pull-right" %></p>
-    <% end %>
-</div>
+        <%= link_to "", user_path(current_user), class: "btn btn-default glyphicon glyphicon-wrench btn-block" %>
+    	<% end %>
+    	</div>
+	</div>
+	<h2>New Book</h2>
 <%= form_for(book) do |f| %>
-	<div class="field">
+	<div class="form-group row">
 		<label for="book_title">Title</label><br>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class:'col-xs-12' %>
 	</div>
-	<div class="field">
+	<div class="form-group row">
 		<label for="book_body">Body</label><br>
-		<%= f.text_area :body %>
+		<%= f.text_area :body, class:'col-xs-12' %>
 	</div>
-	<div class="actions">
-		<%= f.submit 'Create Book' %>
+	<div class="actions row">
+		<%= f.submit 'Create Book', class:'btn btn-primary col-xs-12' %>
 	</div>
 <% end %>
+</div>

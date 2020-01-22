@@ -1,4 +1,12 @@
 <%= render 'layouts/mypagebook', {user: @user, book: @book} %>
-<%= @name %>
-<%= @book.title %>
-<%= @book.body %>
+<div class="col-xl-9">
+	<table>
+		<tbody>
+			<tr>
+			<th><%= @name %></th>
+			<th><%= @book.title %></th>
+			<th><%= @book.body %></th>
+		</tr>
+		</tbody>
+	</table>
+</div>
