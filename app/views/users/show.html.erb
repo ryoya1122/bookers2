@@ -1,5 +1,9 @@
+
 <div class="container">
 <div class="row">
+	<% if flash[:notice] %>
+	<p id=notice><%= flash[:notice] %></p>
+<% end %>
 <%= render 'layouts/userpage', {user: @user, book: @book} %>
 <div class="col-xs-9">
 	<h2>Books</h2>

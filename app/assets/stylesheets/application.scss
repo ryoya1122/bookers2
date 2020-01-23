@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
+
+@import "bootstrap-sprockets" ;  /*ここを追加*/
+@import "bootstrap";          /*ここを追加*/
 
 .navbar-nav span{
 	color: #9d9d9d;
@@ -59,3 +60,21 @@ table{
 }
 }
 
+.container{
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body {
+	padding-top: 70px;
+}
+
+#error_explanation {
+    color: red;
+}
+
+#footer {
+	float: right;
+}
