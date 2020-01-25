@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
     before_action :authenticate_user!
-	def new
-        @book = Book.new
-    end
     def edit
         @book = Book.find(params[:id])
         if @book.user==current_user
@@ -42,6 +39,7 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         @name = @book.user.name
         @user = @book.user
+        @book_1 = Book.new
     end
     def destroy
         @book = Book.find(params[:id])
