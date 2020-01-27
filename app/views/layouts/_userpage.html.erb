@@ -6,10 +6,22 @@
 			<tr>
     			<th>name</th>
     			<th><%= user.name %></th>
+    			<th></th>
     		</tr>
     		<tr>
     			<th>introduction</th>
     			<th><%= user.introduction %></th>
+    		</tr>
+    		<tr>
+    			<th><%= link_to "フォロー", user_follows_path(user) %></th>
+    			<th><%= user.followings.count %></th>
+    		</tr>
+    		<tr>
+    			<th><%= link_to "フォロワー", user_followers_path(user) %></th>
+    			<th><%= user.followers.count %></th>
+    		</tr>
+    		<tr>
+    			<th><%= render 'layouts/follow_button', user: @user %></th>
     		</tr>
     	</tbody>
     </table>
