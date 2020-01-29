@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 	end
 	def index
 		@user = User.new
-		@users = User.all
+		method = flash[:f_users]
+		search = flash[:w_users]
+		@users = User.search(method,search)
 		@book = Book.new
 		@books = Book.all
 	end

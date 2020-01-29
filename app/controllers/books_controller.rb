@@ -31,9 +31,20 @@ class BooksController < ApplicationController
     end
     def index
     	@book = Book.new
-    	@books = Book.all
-    	@user = User.new
-    	@users = User.all
+        @user = User.new
+        method = params[:search_method]
+        search = params[:search_word]
+        target = params[:search_target]
+        if target == "book"
+            @books = Book.search(method,search)
+        elsif target == "user"
+            flash[:f_users] = method
+            flash[:w_users] = search
+            redirect_to users_path
+        else
+            @books = Book.all
+            @users = User.all
+        end
     end
     def show
         @book = Book.find(params[:id])

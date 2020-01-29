@@ -30,5 +30,17 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
-
+  def self.search(method,search)
+          if method == "forward_match"
+                        @users = User.where("name LIKE?","#{search}%")
+                elsif method == "backward_match"
+                        @users = User.where("name LIKE?","%#{search}")
+                elsif method == "perfect_match"
+                        @users = User.where("name LIKE?","#{search}")
+                elsif method == "partial_match"
+                        @users = User.where("name LIKE?","%#{search}%")
+                else
+                        @users = User.all
+                end
+  end
 end
